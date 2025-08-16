@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1754549520092,
+    "name": "sugar",
+    "price": 2345,
+    "quantity": 456,
+    "image": "1754549520078-WIN_20250803_16_36_46_Pro.jpg"
+  },
+  {
+    "id": 1754570683174,
+    "name": "sugar",
+    "price": 1234,
+    "quantity": 12,
+    "image": "1754570683164-WIN_20250803_16_36_46_Pro.jpg"
+  },
+  {
+    "id": 1754588763210,
+    "name": "Biriyani Rice",
+    "price": 1250,
+    "quantity": 25,
+    "image": "1754588763206-profile photo.jpg"
+  }
+]

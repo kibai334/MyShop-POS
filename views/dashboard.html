@@ -1,0 +1,72 @@
+<section id="dashboard" class="view active">
+  <div class="dashboard-header">
+    <div class="user-box">
+      <p>Welcome back, <span id="username-display"></span></p>
+      <button id="logout-btn">Logout</button>
+    </div>
+  </div>
+
+  <div class="dashboard-welcome">
+    <h2>Dashboard</h2>
+    <p>Welcome to the MyShopify POS Dashboard!</p>
+    <br><br>
+  </div>
+
+  <!-- ✅ New Stock Modal Trigger (only ONE now) -->
+  <button id="open-stock-modal" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+    ➕ Add New Stock
+  </button>
+
+  <!-- ✅ Modal -->
+  <div id="stock-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md relative">
+      <span id="close-stock-modal" class="absolute top-2 right-4 text-xl cursor-pointer text-gray-500 hover:text-red-600">&times;</span>
+      <h2 class="text-xl font-bold mb-4">Add New Stock</h2>
+
+      <form id="stock-form" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium">Product Name:</label>
+          <input type="text" id="stock-name" required class="w-full border border-gray-300 rounded p-2">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Upload Image:</label>
+          <input type="file" id="stock-image" accept="image/*" required class="w-full">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Date Purchased:</label>
+          <input type="date" id="stock-date" required class="w-full border border-gray-300 rounded p-2">
+        </div>
+        
+        <div>
+          <label class="block text-sm font-medium">Purchase Price (KSH):</label>
+          <input type="number" id="stock-price" required class="w-full border border-gray-300 rounded p-2">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium">Quantity Purchased:</label>
+          <input type="number" id="stock-quantity" required class="w-full border border-gray-300 rounded p-2">
+        </div>
+
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition w-full">
+          Save Stock
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="flex justify-end px-4 mb-4">
+    <label class="mr-2 font-medium">Sort By Date:</label>
+    <select id="sort-order" class="border px-2 py-1 rounded">
+      <option value="latest">Latest First</option>
+      <option value="earliest">Earliest First</option>
+    </select>
+  </div>
+  
+
+  <!-- ✅ Stock List Section -->
+  <section id="stock-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 px-4">
+    <!-- Stock items will be injected here -->
+  </section>
+</section>

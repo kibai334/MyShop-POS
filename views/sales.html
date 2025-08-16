@@ -1,0 +1,31 @@
+<section>
+    <h2>Sales</h2>
+    <p>Add the new sales</p>
+    <button id="new-sale-btn">New Sale</button>
+    <ul id="sales-list"></ul>
+  
+<!-- ✅ SALE MODAL (Styled to match Edit Modal) -->
+<div id="sale-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="sale-close">&times;</span>
+    <h3>New Sale</h3>
+
+    <div class="form-group">
+      <label for="sale-product">Select Product</label>
+      <select id="sale-product" class="modal-input">
+        <!-- Products get injected here -->
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="sale-qty">Quantity</label>
+      <input type="number" id="sale-qty" class="modal-input" placeholder="Quantity to sell" />
+    </div>
+
+    <button id="confirm-sale-btn" class="modal-btn">Confirm Sale</button>
+  </div>
+</div>
+
+
+  </section>
+  

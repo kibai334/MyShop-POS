@@ -1,0 +1,23 @@
+<section id="products" class="view">
+  <h2>Products</h2>
+  <div class="form-inline" id="product-form">
+    <input type="text" id="product-id" placeholder="Product ID" />
+    <input type="text" id="product-name" placeholder="Product Name" />
+    <input type="number" id="product-qty" placeholder="Quantity" />
+    <button id="add-product-btn">+ Add New Product</button>
+  </div>
+
+  <ul id="product-list"></ul>
+
+  <!-- Edit Modal -->
+  <div id="edit-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span id="edit-close" class="modal-close">&times;</span>
+      <h3>Edit Product</h3>
+
+      <input type="text" id="edit-name" placeholder="New Product Name" />
+      <input type="number" id="edit-qty" placeholder="New Quantity" />
+      <button id="save-edit-btn">Save Changes</button>
+    </div>
+  </div>
+</section>

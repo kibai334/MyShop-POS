@@ -1,0 +1,452 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: #f8f9fa;
+    color: #343a40;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: #2c2f33;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin-left: auto;
+  }
+  
+  nav a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #17a2b8;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  section.view {
+    display: none;
+  }
+  
+  section.view.active {
+    display: block;
+    animation: fadedIn 0.4s ease-in-out;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+  }
+  
+  button:hover {
+    background-color: #138496;
+  }
+  
+  ul {
+    padding-left: 1.5rem;
+    list-style: disc;
+  }
+  
+  ul#product-list li,
+  ul#sales-list li {
+    background: #fff;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #e9ecef;
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .edit-btn {
+    margin-left: 1rem;
+    background-color: #ffc107;
+    color: #212529;
+  }
+  
+  .edit-btn:hover {
+    background-color: #e0a800;
+  }
+  
+  .form-inline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    max-width: 300px;
+  }
+  
+  .form-inline input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* ✅ Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 30px 35px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .close:hover {
+    color: #e74c3c;
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #333;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #444;
+  }
+  
+  .modal-input {
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+  }
+  
+  .modal-input:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .modal-btn {
+    background-color: #00aab8;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-btn:hover {
+    background-color: #008fa0;
+  }
+  
+  #sale-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* 🎯 Dashboard Logout Position */
+  .dashboard-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .user-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  
+  #username-display {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  #logout-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    background-color: #e55353;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  #logout-btn:hover {
+    background-color: #c73333;
+  }
+  
+  .dashboard-welcome {
+    margin-top: 1rem;
+  }
+  
+  /* === EDIT MODAL === */
+  #edit-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  #edit-modal .modal-content {
+    background-color: #fff;
+    padding: 30px 35px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  #edit-modal h3 {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  #edit-modal label {
+    display: block;
+    font-weight: 600;
+    margin: 10px 0 6px;
+    color: #444;
+  }
+  
+  #edit-modal input[type="text"],
+  #edit-modal input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+  }
+  
+  #edit-modal input:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  #edit-modal #save-edit-btn {
+    background-color: #00aab8;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+  
+  #edit-modal #save-edit-btn:hover {
+    background-color: #008fa0;
+  }
+  
+  #edit-modal .close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  #edit-modal .close:hover {
+    color: #e74c3c;
+  }
+  
+  /* ========== MODAL STYLES ========== */
+  .stkModal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* backdrop blur effect */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .stkModal-content {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .stkModal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .stkModal-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .stkModal-content input[type="text"],
+  .stkModal-content input[type="number"],
+  .stkModal-content input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .stkModal-content button[type="submit"] {
+    background-color: #00a6b6;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .stkModal-content button[type="submit"]:hover {
+    background-color: #007e8c;
+  }
+  
+  .close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #777;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: #000;
+  }
+  
+  
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadedIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

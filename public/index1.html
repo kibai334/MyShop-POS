@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyShopify POS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer type="module" src="./assets/js/main.js"></script>
+
+
+</head>
+<body>
+  <header>
+    <h1>MyShopify</h1>
+    <nav>
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#sales">Sales</a></li>
+        <li><a href="#reports">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="app">
+      <!-- Tab content will be loaded here -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 POS App Prototype</p>
+  </footer>
+
+  <div id="toast" style="
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #28a745;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  font-weight: 500;
+  display: none;
+  z-index: 2000;
+">
+  ✅ Sale complete!
+</div>
+
+</body>
+</html>

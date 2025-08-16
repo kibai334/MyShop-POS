@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <title>MyShop Login</title>
+  <link rel="stylesheet" href="./assets/css/landing.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h1>Welcome to MyShop</h1>
+
+    <form id="login-form">
+      <h2>Login</h2>
+
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter username" autocomplete="username" required />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" required />
+      </div>
+
+      <button type="submit">Log In</button>
+
+      <p id="error-message" class="error" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <script src="./assets/js/landing.js"></script>
+</body>
+</html>
