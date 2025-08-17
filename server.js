@@ -13,7 +13,7 @@ const fs = require('fs');
 
 // ====== APP CONFIG ======
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000; // ✅ declared once
 
 // ====== CREATE UPLOADS FOLDER IF NOT EXISTS ======
 const uploadsDir = path.join(__dirname, 'uploads');
@@ -79,7 +79,7 @@ const upload = multer({ storage });
 
 // Root check
 app.get('/', (req, res) => {
-    res.json({ message: 'API is running...' });
+    res.json({ message: '✅ API is running...' });
 });
 
 // User Registration
@@ -153,8 +153,6 @@ app.get('/api/stock', authenticateToken, async (req, res) => {
 });
 
 // ====== START SERVER ======
-const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
